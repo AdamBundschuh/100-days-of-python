@@ -17,24 +17,17 @@ import os
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
 def get_player_score():
-    total = 0
-    for card in player_cards:
-        total += card
-    return total
+    return sum(player_cards)
 
 def get_dealer_score():
-    total = 0
-    for card in dealer_cards:
-        total += card
-    return total
+    return sum(dealer_cards)
 
 def starting_hands():
     player_cards.clear()
-    player_hit()
-    player_hit()
     dealer_cards.clear()
-    dealer_hit()
-    dealer_hit()
+    for _ in range(0,2):
+        player_hit()
+        dealer_hit()
 
 def player_hit():
     card = random.choice(cards)

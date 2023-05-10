@@ -1,8 +1,9 @@
 flag = True
 
 def make_false():
-    return False
+    global flag
+    flag = False
 
-flag = make_false()
+make_false()
 print(flag)
 
