@@ -73,22 +73,22 @@ def insert_coins(item):
                          'amount': int(input("How many pennies?: "))}
              }
 
-    money_inserted = 0
+    coins_inserted = 0
 
     for coin in coins:
         value = coins[coin]['value']
         amount = coins[coin]['amount']
-        money_inserted += value * amount
+        coins_inserted += value * amount
 
-    money_inserted = round_money(money_inserted)
-    print(f"Money inserted: ${money_inserted}")
+    total_coins_inserted = round_money(coins_inserted)
+    print(f"Money inserted: ${total_coins_inserted}")
 
     money_required = round_money(item['cost'])
     print(f"Money required: ${money_required}")
 
-    is_enough_money = money_inserted >= money_required
+    is_enough_money = total_coins_inserted >= money_required
 
-    return money_inserted, is_enough_money
+    return total_coins_inserted, is_enough_money
 
 
 def check_money(item):
@@ -136,10 +136,11 @@ def report():
 money = 500
 machine_on = True
 enough_resources = False
+enough_money = False
+money_inserted = 0
 
 while machine_on:
     choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
-
     drink = {}
     make_drink = False
 
@@ -160,5 +161,5 @@ while machine_on:
 
     if make_drink:
         enough_resources = check_resources(drink)
-        amount_inserted, enough_money = insert_coins(drink)
+        money_inserted, enough_money = insert_coins(drink)
 
