@@ -1,3 +1,5 @@
+import numbers
+
 MENU = {
     "espresso": {
         "ingredients": {
@@ -59,41 +61,56 @@ def check_resources(item):
     return True
 
 
+def validate_coin_amount(amount, coin_type):
+    try:
+        amount = int(amount)
+    except:
+        print(f'You entered an invalid input, no {coin_type} added')
+        return 0
+    else:
+        return int(amount)
+
+
 def insert_coins(item):
-    """Takes number of coins as input from the user and totals the amount"""
+    """Takes number of coins as input from the user and totals the amount.
+    Checks if it's enough and returns the
+    change and is_enough_money as a boolean."""
     print("Please insert coins.")
 
+    # Validate a number is entered, otherwise 0
+    num_quarters = validate_coin_amount(input("How many quarters?: "), "quarters")
+    num_dimes = validate_coin_amount(input("How many dimes?: "), "dimes")
+    num_nickles = validate_coin_amount(input("How many nickles?: "), "nickles")
+    num_pennies = validate_coin_amount(input("How many pennies?: "), "pennies")
+
     coins = {'quarters': {'value': 0.25,
-                          'amount': int(input("How many quarters?: "))},
-
+                          'amount': num_quarters},
              'dimes': {'value': 0.10,
-                       'amount': int(input("How many dimes?: "))},
-
+                       'amount': num_dimes},
              'nickles': {'value': 0.05,
-                         'amount': int(input("How many nickles?: "))},
-
+                         'amount': num_nickles},
              'pennies': {'value': 0.01,
-                         'amount': int(input("How many pennies?: "))}
+                         'amount': num_pennies}
              }
 
-    coins_inserted = 0
+    money_inserted = 0
+    change = 0
 
     for coin in coins:
         value = coins[coin]['value']
         amount = coins[coin]['amount']
-        coins_inserted += (value * amount)
+        money_inserted += (value * amount)
 
-    total_money = coins_inserted
     item = MENU[item]
     money_required = item['cost']
-    is_enough_money = total_money >= money_required
+    is_enough_money = money_inserted >= money_required
 
     if is_enough_money:
-        total_money = round_money(float(total_money) - float(money_required))
+        change = round_money(float(money_inserted) - float(money_required))
     else:
         print("Sorry, that's not enough money. Money refunded.")
 
-    return total_money, is_enough_money
+    return change, is_enough_money
 
 
 def round_money(amount):
