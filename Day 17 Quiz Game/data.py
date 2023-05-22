@@ -1,16 +1,107 @@
 question_data = [
-    {"text": "A slug's blood is green.", "answer": "True"},
-    {"text": "The loudest animal is the African Elephant.", "answer": "False"},
-    {"text": "Approximately one quarter of human bones are in the feet.", "answer": "True"},
-    {"text": "The total surface area of a human lungs is the size of a football pitch.", "answer": "True"},
-    {"text": "In West Virginia, USA, if you accidentally hit an animal with your car, "
-             "you are free to take it home to eat.", "answer": "True"},
-    {"text": "In London, UK, if you happen to die in the House of Parliament, "
-             "you are entitled to a state funeral.", "answer": "False"},
-    {"text": "It is illegal to pee in the Ocean in Portugal.", "answer": "True"},
-    {"text": "You can lead a cow down stairs but not up stairs.", "answer": "False"},
-    {"text": "Google was originally called 'Backrub'.", "answer": "True"},
-    {"text": "Buzz Aldrin's mother's maiden name was 'Moon'.", "answer": "True"},
-    {"text": "No piece of square dry paper can be folded in half more than 7 times.", "answer": "False"},
-    {"text": "A few ounces of chocolate can to kill a small dog.", "answer": "True"}
+    {
+        "category": "Art",
+        "type": "boolean",
+        "difficulty": "easy",
+        "question": "Leonardo da Vince's Mona Lisa does not have eyebrows.",
+        "correct_answer": "True",
+        "incorrect_answers": [
+            "False"
+        ]
+    },
+    {
+        "category": "Politics",
+        "type": "boolean",
+        "difficulty": "easy",
+        "question": "There was a satirical candidate named 'Deez Nuts' running "
+                    "in the 2016 US presidential elections.",
+        "correct_answer": "True",
+        "incorrect_answers": [
+            "False"
+        ]
+    },
+    {
+        "category": "Entertainment: Books",
+        "type": "boolean",
+        "difficulty": "easy",
+        "question": "The book 1984 was published in 1949.",
+        "correct_answer": "True",
+        "incorrect_answers": [
+            "False"
+        ]
+    },
+    {
+        "category": "Entertainment: Video Games",
+        "type": "boolean",
+        "difficulty": "easy",
+        "question": "Faust is a playable character in 'Guilty Gear Xrd Revelator'.",
+        "correct_answer": "True",
+        "incorrect_answers": [
+            "False"
+        ]
+    },
+    {
+        "category": "History",
+        "type": "boolean",
+        "difficulty": "easy",
+        "question": "The United States Department of Homeland Security was formed in "
+                    "response to the September 11th attacks.",
+        "correct_answer": "True",
+        "incorrect_answers": [
+            "False"
+        ]
+    },
+    {
+        "category": "Entertainment: Board Games",
+        "type": "boolean",
+        "difficulty": "easy",
+        "question": "The card game &quot;Munchkin&quot; won the 2001 Origins Award for "
+                    "Best Traditional Card Game.",
+        "correct_answer": "True",
+        "incorrect_answers": [
+            "False"
+        ]
+    },
+    {
+        "category": "Entertainment: Film",
+        "type": "boolean",
+        "difficulty": "easy",
+        "question": "Ewan McGregor did not know the name of the second prequel film of "
+                    "Star Wars during and after filming.",
+        "correct_answer": "True",
+        "incorrect_answers": [
+            "False"
+        ]
+    },
+    {
+        "category": "Entertainment: Film",
+        "type": "boolean",
+        "difficulty": "easy",
+        "question": "George Lucas directed the entire original Star Wars trilogy.",
+        "correct_answer": "False",
+        "incorrect_answers": [
+            "True"
+        ]
+    },
+    {
+        "category": "Science & Nature",
+        "type": "boolean",
+        "difficulty": "easy",
+        "question": "Celiac Disease is a disease that effects the heart, "
+                    "causing those effected to be unable to eat meat.",
+        "correct_answer": "False",
+        "incorrect_answers": [
+            "True"
+        ]
+    },
+    {
+        "category": "Entertainment: Video Games",
+        "type": "boolean",
+        "difficulty": "easy",
+        "question": "In 'Space Station 13',  the station has a clown aboard it.",
+        "correct_answer": "True",
+        "incorrect_answers": [
+            "False"
+        ]
+    }
 ]

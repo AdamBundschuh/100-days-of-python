@@ -3,9 +3,10 @@ from question_model import Question
 from quiz_brain import QuizBrain
 
 question_bank = []
+
 for data in question_data:
-    q_text = data["text"]
-    q_answer = data["answer"]
+    q_text = data["question"]
+    q_answer = data["correct_answer"]
     new_question = Question(q_text, q_answer)
     question_bank.append(new_question)
 
