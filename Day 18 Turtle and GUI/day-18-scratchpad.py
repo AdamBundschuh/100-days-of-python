@@ -3,6 +3,7 @@ from turtle import Turtle, Screen
 from colors import color_list
 import random
 
+screen = Screen()
 tim = Turtle()
 tim.hideturtle()
 tim.penup()
@@ -11,6 +12,10 @@ tim.pensize(20)
 turtle.colormode(255)
 tim.setx(-300)
 tim.sety(-300)
+screen_w = screen.canvwidth
+screen_h = screen.canvheight
+print(screen_w)
+print(screen_h)
 
 
 def random_color():
@@ -39,5 +44,5 @@ for _ in range(10):
     draw_row()
     new_row()
 
-screen = Screen()
+
 screen.exitonclick()
