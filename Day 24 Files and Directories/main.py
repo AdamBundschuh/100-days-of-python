@@ -10,15 +10,15 @@
 template = "./Input/Letters/starting_letter.txt"
 save_path = "./Output/ReadyToSend/"
 
-names = open("./Input/Names/invited_names.txt", "r")
+with open("./Input/Names/invited_names.txt", "r") as data:
+    names = data.readlines()
 
 for name in names:
     recipient_name = name.strip()
-    file_name = "letter_to_" + recipient_name.replace(" ", "_").lower() + ".txt"
-
     with open(template, "r") as data:
-        letter = data.read().replace("[name]", recipient_name)
+        new_letter = data.read().replace("[name]", recipient_name)
 
+    file_name = "letter_to_" + recipient_name.replace(" ", "_") + ".txt"
     with open(save_path + file_name, mode="w") as data:
-        data.write(letter)
+        data.write(new_letter)
 
