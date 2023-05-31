@@ -19,12 +19,6 @@ def snake_game():
     screen.register_shape("art/snake_head_up.gif")
     screen.register_shape("art/snake_head_down.gif")
 
-    def reset_game():
-        snake.reset()
-        food.reset()
-        scoreboard.reset()
-        snake_game()
-
     snake = Snake()
     food = Food()
     scoreboard = Scoreboard()
@@ -37,8 +31,6 @@ def snake_game():
 
     screen.onkey(screen.bye, "x")
 
-    screen.onkey(reset_game, "r")
-
     game_is_on = True
     while game_is_on:
         screen.update()
@@ -47,14 +39,14 @@ def snake_game():
 
         # Detect collision with walls
         if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 230 or snake.head.ycor() < -280:
-            game_is_on = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
 
         # Detect collision with tail
         for segment in snake.body:
             if snake.head.distance(segment) < 10:
-                game_is_on = False
-                scoreboard.game_over()
+                scoreboard.reset()
+                snake.reset()
 
         # Detect collision with food
         if snake.head.distance(food) < 16:

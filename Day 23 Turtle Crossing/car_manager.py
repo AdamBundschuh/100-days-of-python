@@ -21,6 +21,7 @@ class CarManager:
         new_car = Turtle()
         new_car.shape("square")
         new_car.penup()
+        new_car.setheading(180)
         new_car.shapesize(stretch_wid=1, stretch_len=2)
         new_car.color(choice(COLORS))
         new_car.goto(320, random_y)
@@ -28,8 +29,7 @@ class CarManager:
 
     def move_cars(self):
         for car in self.car_list:
-            new_x = car.xcor() - self.move_distance
-            car.goto(new_x, car.ycor())
+            car.forward(self.move_distance)
 
             if car.xcor() < -320:
                 self.car_list.remove(car)
