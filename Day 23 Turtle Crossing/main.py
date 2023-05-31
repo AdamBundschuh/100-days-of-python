@@ -10,23 +10,31 @@ screen.tracer(0)
 
 player = Player()
 car_manager = CarManager()
-
-
+scoreboard = Scoreboard()
 
 screen.listen()
-screen.onkey(player.move, "Up")
-
-car_timing = 1
+screen.getcanvas().bind('<Up>', player.move)
 
 game_is_on = True
 while game_is_on:
-    if car_timing % 3 == 0:
-        car_manager.new_car()
-
-    print(car_timing)
-    print(car_timing % 1)
-
     car_manager.move_cars()
-    time.sleep(0.1)
+    car_manager.add_cars()
+
+    # Detect collision wih car
+    for car in car_manager.car_list:
+        if car.distance(player) < 30:
+            screen.onkey(None, "Up")
+            game_is_on = False
+            screen.update()
+
+    # Detect score
+    if player.ycor() > 290:
+        player.reset_position()
+        scoreboard.increase_score()
+        car_manager.speed_up()
+        screen.update()
+
     screen.update()
-    car_timing += 1
+    time.sleep(car_manager.move_speed)
+
+screen.exitonclick()

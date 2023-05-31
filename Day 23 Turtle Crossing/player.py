@@ -12,9 +12,10 @@ class Player(Turtle):
         self.penup()
         self.setheading(90)
         self.speed("fastest")
-        self.goto(0, -280)
+        self.goto(STARTING_POSITION)
 
+    def move(self, _):
+        self.forward(MOVE_DISTANCE)
 
-    def move(self):
-        new_y = self.ycor() + MOVE_DISTANCE
-        self.goto(self.xcor(), new_y)
+    def reset_position(self):
+        self.goto(STARTING_POSITION)
