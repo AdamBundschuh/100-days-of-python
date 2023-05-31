@@ -39,7 +39,7 @@ class CarManager:
             self.new_car()
             self.timing = 0
 
-        self.timing = round(self.timing, 2) + 1
+        self.timing += 1
 
     def speed_up(self):
         self.move_speed *= 0.7
