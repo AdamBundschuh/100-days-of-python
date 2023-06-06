@@ -27,7 +27,6 @@ def reset_timer():
     reps = 0
 
 
-
 # ---------------------------- TIMER MECHANISM ------------------------------- #
 def start_timer():
     start_btn.config(state="disabled")
@@ -38,13 +37,13 @@ def start_timer():
     long_break_seconds = LONG_BREAK_MIN * 60
 
     if reps % 8 == 0:
-        count_down(5)
+        count_down(long_break_seconds)
         top_text.config(text="Break", fg=RED)
     elif reps % 2 == 0:
-        count_down(5)
+        count_down(short_break_seconds)
         top_text.config(text="Break", fg=PINK)
     else:
-        count_down(5)
+        count_down(work_seconds)
         top_text.config(text="Work", fg=GREEN)
 
 
