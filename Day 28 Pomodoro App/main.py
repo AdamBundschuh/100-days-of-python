@@ -1,5 +1,14 @@
 from tkinter import *
 import math
+import sys
+import os
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
@@ -77,7 +86,7 @@ window.config(padx=100, pady=50, bg=YELLOW)
 
 # Tomato Timer
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
-tomato_img = PhotoImage(file="tomato.png")
+tomato_img = PhotoImage(file=resource_path("tomato.png"))
 canvas.create_image(100, 112, image=tomato_img)
 timer_text = canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
 canvas.grid(column=1, row=1)
