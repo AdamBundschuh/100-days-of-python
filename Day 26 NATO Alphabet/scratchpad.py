@@ -1,28 +1,45 @@
 from random import randint
+import pandas
 
 numbers = [1, 2, 3]
 # new_list = [new_item for item in list]
 new_list = [n + 1 for n in numbers]
-print(new_list)
+# print(new_list)
 
 name = "Adam"
 new_name = [letter for letter in name]
-print(new_name)
+# print(new_name)
 
 double_list = [i * 2 for i in range(1, 5)]
-print(double_list)
+# print(double_list)
 
 names = ['Adam', 'Dave', 'Alex', 'Serena', 'Devil Woman', 'Caroline', 'Bethany']
 short_names = [name for name in names if len(name) < 5]
-print(short_names)
+# print(short_names)
 
 uppercase_names = [name.upper() for name in names if len(name) > 4]
-print(uppercase_names)
+# print(uppercase_names)
 
 names = ['Adam', 'Dave', 'Alex', 'Serena', 'Devil Woman', 'Caroline', 'Bethany']
 # new_dict = {new_key:new_value for (key,value) in dict.items() if test}
-student_scores = {student:randint(1, 100) for student in names}
-print(student_scores)
+student_scores = {student: randint(1, 100) for student in names}
+# print(student_scores)
 
-passed_students = {student:score for (student,score) in student_scores.items() if score >= 60}
-print(passed_students)
+passed_students = {student: score for (student, score) in student_scores.items() if score >= 60}
+# print(passed_students)
+
+student_dict = {
+    "student": ['Adam', 'James', 'Eric', 'Serena'],
+    "score": [56, 77, 82, 45]
+}
+
+for (key, value) in student_dict.items():
+    # print(value)
+    pass
+
+student_df = pandas.DataFrame(student_dict)
+# print(student_df)
+
+for (index, row) in student_df.iterrows():
+    print(row.student)
+    print(row)
