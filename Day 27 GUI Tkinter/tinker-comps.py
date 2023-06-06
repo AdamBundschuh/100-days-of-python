@@ -13,7 +13,7 @@ label["text"] = "Label Text"
 
 
 def button_clicked():
-    # my_label["text"] = input.get()
+    # my_label["text"] = entry.get()
     label.config(text=entry.get())
 
 
