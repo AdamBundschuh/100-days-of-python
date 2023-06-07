@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from random import randint, choice, shuffle
 import pyperclip
-import time
+import json
 
 # ---------------------------- CONSTANTS ------------------------------- #
 FONT_NAME = "Consolas"
@@ -15,8 +15,10 @@ LIGHT_GREY = "#f3f6f4"
 
 
 def generate_password():
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
-               'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+               'v',
+               'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
+               'R',
                'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
@@ -40,23 +42,36 @@ def generate_password():
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
-
+def save_json_to_file(data):
+    with open("data.json", mode="w") as data_file:
+        json.dump(data, data_file, indent=4)
 
 def save():
     website = website_entry.get()
     email = email_entry.get()
     password = password_entry.get()
 
+    new_data = {
+        website: {
+            "email": email,
+            "password": password
+        }
+    }
+
     if len(website) == 0 or password == 0:
         messagebox.showerror(title="Oops!",
-                             message="Website and/or password field is blanks.\nPlease maksure sure you haven't left any fields blank.")
+                             message="Website and/or password field is blanks.\n"
+                                     "Please maksure sure you haven't left any fields blank.")
     else:
-        is_ok = messagebox.askokcancel(title=website,
-                                       message=f"These are the details entered:\n\nEmail: {email}\nPassword: {password}\n\nOK to save?")
-
-        if is_ok:
-            with open("data.txt", mode="a") as data:
-                data.write(f"{website} | {email} | {password}\n")
+        try:
+            with open("data.json", mode="r") as data_file:
+                data = json.load(data_file)
+        except FileNotFoundError:
+            save_json_to_file(new_data)
+        else:
+            data.update(new_data)
+            save_json_to_file(data)
+        finally:
             website_entry.delete(0, END)
             password_entry.delete(0, END)
 
@@ -75,10 +90,10 @@ canvas.grid(column=1, row=0)
 
 # Website Row
 website_lbl = Label(text="Website:", font=(FONT_NAME, FONT_SIZE, FONT_BOLD), bg=LIGHT_GREY)
-website_lbl.grid(column=0, row=1, stick="E", padx=(0, 10), pady=(25,0))
+website_lbl.grid(column=0, row=1, stick="E", padx=(0, 10), pady=(25, 0))
 
 website_entry = Entry(width=35, font=(FONT_NAME, FONT_SIZE))
-website_entry.grid(column=1, row=1, columnspan=2, sticky="EW", pady=(25,0))
+website_entry.grid(column=1, row=1, columnspan=2, sticky="EW", pady=(25, 0))
 # website_entry.insert(END, "Facebook")
 website_entry.focus()
 
