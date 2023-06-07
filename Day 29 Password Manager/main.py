@@ -5,8 +5,11 @@ import pyperclip
 import time
 
 # ---------------------------- CONSTANTS ------------------------------- #
-FONT_NAME = "Arial"
+FONT_NAME = "Consolas"
+FONT_SIZE = 10
+FONT_BOLD = "bold"
 LIGHT_GREY = "#f3f6f4"
+
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
@@ -71,27 +74,27 @@ canvas.create_image(100, 100, image=logo_img)
 canvas.grid(column=1, row=0)
 
 # Website Row
-website_lbl = Label(text="Website:", font=(FONT_NAME, 12), bg=LIGHT_GREY)
+website_lbl = Label(text="Website:", font=(FONT_NAME, FONT_SIZE, FONT_BOLD), bg=LIGHT_GREY)
 website_lbl.grid(column=0, row=1, stick="E", padx=(0, 10), pady=(25,0))
 
-website_entry = Entry(width=35)
+website_entry = Entry(width=35, font=(FONT_NAME, FONT_SIZE))
 website_entry.grid(column=1, row=1, columnspan=2, sticky="EW", pady=(25,0))
 # website_entry.insert(END, "Facebook")
 website_entry.focus()
 
 # Email/User Row
-email_lbl = Label(text="Email/Username:", font=(FONT_NAME, 12), bg=LIGHT_GREY)
+email_lbl = Label(text="Email/Username:", font=(FONT_NAME, FONT_SIZE, FONT_BOLD), bg=LIGHT_GREY)
 email_lbl.grid(column=0, row=2, padx=(0, 10))
 
-email_entry = Entry(width=35)
+email_entry = Entry(width=35, font=(FONT_NAME, FONT_SIZE))
 email_entry.grid(column=1, row=2, columnspan=2, sticky="EW")
 email_entry.insert(END, "bundschuh.adam@gmail.com")
 
 # Password Row
-password_lbl = Label(text="Password:", font=(FONT_NAME, 12), bg=LIGHT_GREY)
+password_lbl = Label(text="Password:", font=(FONT_NAME, FONT_SIZE, FONT_BOLD), bg=LIGHT_GREY)
 password_lbl.grid(column=0, row=3, stick="E", padx=(0, 10))
 
-password_entry = Entry(width=21)
+password_entry = Entry(width=21, font=(FONT_NAME, FONT_SIZE))
 password_entry.grid(column=1, row=3, sticky="EW", padx=(0, 10))
 # password_entry.insert(END, "123456789")
 
