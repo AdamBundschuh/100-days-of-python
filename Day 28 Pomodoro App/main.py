@@ -22,7 +22,6 @@ LONG_BREAK_MIN = 20
 CHECKMARK = "✔"
 reps = 0
 timer = None
-timer_running = False
 
 
 # ---------------------------- TIMER RESET ------------------------------- #
