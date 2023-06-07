@@ -1,10 +1,26 @@
 {
     "Amazon": {
         "email": "bundschuh.adam@gmail.com",
-        "password": "*x98Y7&yF1+Za%Fsnz"
+        "password": "C$)KYHgGM3n7#%dg"
     },
     "Ebay": {
         "email": "bundschuh.adam@gmail.com",
-        "password": "x)NcG2i#)u#w9uFO"
+        "password": "E(7aOXL)8qx7R7"
+    },
+    "Udemy": {
+        "email": "bundschuh.adam@gmail.com",
+        "password": "QsnQ5s2&QuO+"
+    },
+    "Google": {
+        "email": "bundschuh.adam@gmail.com",
+        "password": "6wj!$fVM7ub2&j%cM"
+    },
+    "Reddit": {
+        "email": "bundschuh.adam@gmail.com",
+        "password": "&jwnly$9R#a65o$6"
+    },
+    "Gmail": {
+        "email": "bundschuh.adam@gmail.com",
+        "password": "08l%%H%d%CvxtlSn"
     }
 }
