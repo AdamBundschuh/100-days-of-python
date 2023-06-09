@@ -17,8 +17,9 @@ for name in names:
     recipient_name = name.strip()
     with open(TEMPLATE_PATH, "r") as data:
         new_letter = data.read().replace("[name]", recipient_name)
+        print(new_letter)
 
     file_name = "letter_to_" + recipient_name.replace(" ", "_") + ".txt"
     with open(SAVE_PATH + file_name, mode="w") as data:
-        data.write(new_letter)
+        pass  #data.write(new_letter)
 
