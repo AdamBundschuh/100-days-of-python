@@ -33,14 +33,15 @@ data = api_result.json()
 day_1 = data['forecast']['forecastday'][0]
 rain_on_day_1 = True if day_1['day']['daily_will_it_rain'] == 1 else False
 
+
 # Tomorrow
 day_2 = data['forecast']['forecastday'][1]
 rain_on_day_2 = True if day_2['day']['daily_will_it_rain'] == 1 else False
 
 # Day after tomorrow
-day_3 = data['forecast']['forecastday'][1]
+day_3 = data['forecast']['forecastday'][2]
 rain_on_day_3 = True if day_3['day']['daily_will_it_rain'] == 1 else False
 
-print(f"Will it rain today: {rain_on_day_1}")
-print(f"Will it rain tomorrow: {rain_on_day_2}")
-print(f"Will it rain the day after tomorrow: {rain_on_day_3}")
+print(f"Will it rain today? {'Yes' if {rain_on_day_1} else 'No'}")
+print(f"Will it rain tomorrow? {'Yes' if {rain_on_day_2} else 'No'}")
+print(f"Will it rain the day after tomorrow? {'Yes' if {rain_on_day_3} else 'No'}")
