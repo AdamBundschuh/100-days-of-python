@@ -1,5 +1,6 @@
 import requests
 from datetime import datetime
+import math
 
 MY_LAT = 39.962760
 MY_LONG = -82.996290
@@ -47,3 +48,7 @@ class Iss:
 
     def is_visible(self):
         return self.is_nighttime() and self.in_range()
+
+    def display_info(self):
+        print(f"Local time: {datetime.utcnow()}")
+        print(f"Current ISS Location: {math.floor(self.iss_lat)} | {math.floor(self.iss_lng)}")
