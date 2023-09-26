@@ -38,7 +38,7 @@ day_before = daily_stocks_list[1]
 day_before_price = float(day_before['4. close'])
 
 price_difference = round(abs(yesterday_price - day_before_price), 2)
-percent_difference = (price_difference / ((yesterday_price + day_before_price) / 2)) * 1000
+percent_difference = round((price_difference / ((yesterday_price + day_before_price) / 2)) * 1000, 1)
 print(percent_difference)
 
 
@@ -48,7 +48,7 @@ def get_news():
     three_articles = news_api_result.json()["articles"][:3]
     arrow = '⬆️' if yesterday_price > day_before_price else '⬇️'
 
-    formatted_articles = [f"{STOCK_NAME} {arrow}{round(percent_difference,1)}%\n*Headline*: {article['title']} \n*Brief*: {article['description']}" for article in three_articles]
+    formatted_articles = [f"{STOCK_NAME} {arrow}{percent_difference}%\n*Headline*: {article['title']} \n*Brief*: {article['description']}" for article in three_articles]
 
     client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
     to_whatsapp = '+14193410548'
