@@ -6,15 +6,14 @@ TWILIO_AUTH_TOKEN = "89c2e6a02aaacf9362be3d79329f6b8c"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 NEWS_KEY = "12757eefd37f41108fd33e26d79c1fd4"
 COMPANY_NAME = "Tesla Inc"
+STOCK_NAME = "TSLA"
+STOCK_ENDPOINT = "https://www.alphavantage.co/query"
+STOCK_KEY = "MD50989IM0GF6N33"
 
 NEWS_PARAMS = {
     'apiKey': NEWS_KEY,
     'qInTitle': COMPANY_NAME
 }
-
-STOCK_NAME = "TSLA"
-STOCK_ENDPOINT = "https://www.alphavantage.co/query"
-STOCK_KEY = "MD50989IM0GF6N33"
 
 STOCK_PARAMS = {
     'function': 'TIME_SERIES_DAILY',
