@@ -20,7 +20,7 @@ class DataManager:
         self.destination_data = data["prices"]
         return self.destination_data
 
-    def update_destination_codes(self):
+    def update_all_destination_codes(self):
         for city in self.destination_data:
             new_data = {
                 "price": {
@@ -33,7 +33,7 @@ class DataManager:
             )
             print(response.text)
 
-    def update_single_destination_codes(self, destination):
+    def update_single_destination_code(self, destination):
         print("Updating IATA Code in Google Sheet")
 
         new_data = {

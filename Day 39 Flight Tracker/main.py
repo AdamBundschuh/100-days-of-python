@@ -11,7 +11,7 @@ sheet_data = data_manager.get_destination_data()
 for row in sheet_data:
     if row['iataCode'] == '':
         row['iataCode'] = flight_search.get_destination_code(row['city'])
-        data_manager.update_single_destination_codes(row)
+        data_manager.update_single_destination_code(row)
 
     flight_data = flight_search.get_flight_data(row['iataCode'], row['lowestPrice'])
     if flight_data is not None:
