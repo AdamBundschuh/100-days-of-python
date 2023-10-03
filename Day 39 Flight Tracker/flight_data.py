@@ -1,6 +1,5 @@
 from datetime import datetime
 import requests
-from pprint import pprint
 import json
 
 KEY = 'a5f69cad61c242beaead4ce02a0b89bd'
@@ -43,5 +42,4 @@ class FlightData:
 
         if (r.status_code == requests.codes.ok):
             link = r.json()
-            # print("Long URL was %s, short URL is %s" % (link["destination"], link["shortUrl"]))
             return link["shortUrl"]

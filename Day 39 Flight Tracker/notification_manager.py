@@ -18,11 +18,9 @@ class NotificationManager:
                             f"from {flight_data.depart_date} to {flight_data.return_date}\n" \
                             f"🔗: {flight_data.link}"
 
-        to_whatsapp = '+14193410548'
-
         message = client.messages.create(
             body=formatted_message,
             from_=FROM_WHATSAPP,
             to=TO_WHATSAPP
         )
-        print(f"Message Sent for {flight_data.dest_city}")
+        print(f"Message Sent: {message}")
