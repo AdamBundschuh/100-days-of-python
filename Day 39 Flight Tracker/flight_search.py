@@ -5,7 +5,7 @@ from Passwords import authentication as auth
 
 AUTH = auth.flight_search['tequila']
 API_KEY = AUTH['api_key']
-ENDPOINT = "https://api.tequila.kiwi.com"
+ENDPOINT = AUTH['endpoint']
 FROM_IATA_CODE = "CMH"
 CURRENCY = "USD"
 
@@ -48,6 +48,21 @@ class FlightSearch:
 
         response = requests.get(url=f"{ENDPOINT}/search", params=params, headers=header)
 
-        if response.json()['_results'] > 0:
-            flight_data = FlightData(response.json()['data'][0])
+        try:
+            data = response.json()['data'][0]
+        except IndexError:
+            print(f"No flights found for {iata_code}")
+            return None
+        else:
+            route_data = data["route"]
+            flight_data = FlightData(
+                price=data['price'],
+                dest_city=data["cityTo"],
+                dest_code=data["cityCodeTo"],
+                depart_city=data["cityFrom"],
+                depart_code=data["cityCodeFrom"],
+                route_data=route_data,
+                link=data["deep_link"]
+            )
+
             return flight_data
