@@ -1,14 +1,16 @@
 import requests
 from datetime import datetime, timedelta
 from flight_data import FlightData
+from Passwords import authentication as auth
 
-TEQUILA_KEY = "95thNB1eWzap8cesctVxmt7NiJsnJ1DB"
+AUTH = auth.flight_search['tequila']
+API_KEY = AUTH['api_key']
 ENDPOINT = "https://api.tequila.kiwi.com"
 FROM_IATA_CODE = "CMH"
 CURRENCY = "USD"
 
 header = {
-    "apikey": TEQUILA_KEY,
+    "apikey": API_KEY,
 }
 
 

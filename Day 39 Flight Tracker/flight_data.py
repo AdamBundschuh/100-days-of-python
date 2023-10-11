@@ -1,8 +1,11 @@
 from datetime import datetime
 import requests
 import json
+from Passwords import authentication as auth
 
-KEY = 'a5f69cad61c242beaead4ce02a0b89bd'
+AUTH = auth.flight_search['rebrandly']
+
+KEY = AUTH['api_key']
 
 
 class FlightData:

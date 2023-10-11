@@ -1,6 +1,8 @@
 import requests
+from Passwords import authentication as auth
 
-API_KEY = "Bearer 83jrijdf8u3jj27e6ru23in47fgt342hnf937ynr9"
+AUTH = auth.flight_search['sheety']
+API_KEY = AUTH['api_key']
 ENDPOINT = "https://api.sheety.co/d072de6e229f2ef33682abecc9cbe9ce/personalFlightDeals/prices"
 
 headers = {
